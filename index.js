@@ -13,27 +13,30 @@ import {
   toMetaplexFile,
 } from "@metaplex-foundation/js"
 
+import base58 from "bs58"
 import * as fs from "fs"
 
-// freeze authority (account 2)
-const admin = Keypair.fromSecretKey(Uint8Array.from([
-  107, 13, 70, 95, 209, 140, 156, 213, 107, 51, 60,
-  16, 1, 230, 46, 102, 88, 63, 126, 67, 233, 83,
-  67, 34, 217, 229, 229, 202, 139, 46, 31, 118, 203,
-  252, 46, 236, 43, 232, 153, 107, 243, 74, 166, 243,
-  34, 138, 135, 82, 173, 169, 149, 219, 245, 29, 255,
-  138, 34, 23, 85, 202, 20, 149, 188, 199
-]));
+// Type admin private key
+const adminKey = "type admin private key"
 
-// owner authority (account 1)
-const owner = Keypair.fromSecretKey(Uint8Array.from([
-  87, 9, 143, 118, 48, 235, 192, 210, 206, 116, 38,
-  152, 172, 111, 201, 138, 209, 229, 181, 218, 144, 196,
-  189, 247, 160, 239, 24, 202, 21, 216, 175, 86, 61,
-  4, 202, 96, 246, 237, 124, 66, 75, 61, 11, 83,
-  25, 159, 71, 134, 212, 226, 190, 70, 156, 200, 101,
-  138, 137, 180, 196, 175, 220, 50, 89, 10
-]));
+// Type user private key
+const userKey = "type user private key"
+
+// example data for a new NFT
+const nftData = [{
+  name: "SBC #18",
+  symbol: "sbc",
+  description: "Example nft for SBC project",
+  sellerFeeBasisPoints: 500,
+  imageFile: "image/1.jpg",
+}]
+
+// freeze authority (account 2)
+const admin = Keypair.fromSecretKey(
+  base58.decode(
+    adminKey
+  )
+);
 
 const NETWORK = "devnet";
 const RPC = "https://api.devnet.solana.com";
@@ -119,8 +122,8 @@ async function makeUnLockTransaction(nft) {
 
 async function main() {
 
-  const mintAddress = new PublicKey("DySWwgRQaXLXMZ8Lcr89RiyZKuzAtDC1zxNxgA3WBKUd");
-  const nft = await metaplex.nfts().findByMint({ mintAddress })
+  //   const mintAddress = new PublicKey("7tEYHWJCd9AwMiMJDwPWTorTLU2um48swCb1P8vghJCY");
+  //   const nft = await metaplex.nfts().findByMint({ mintAddress })
 
   await makeUnlockAndRevokeTransaction(nft);
 
