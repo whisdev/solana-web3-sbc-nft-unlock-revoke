@@ -20,6 +20,8 @@ interface paramsProps {
 
 // const utilityDelegatePubkey = '';
 const utilityDelegatePubkey = new PublicKey("public key of utility delegate");
+
+// const rules = new Publickey("");
 const rules = new PublicKey("public key of rules account");
 
 const utilityDelegate = Keypair.fromSecretKey(
