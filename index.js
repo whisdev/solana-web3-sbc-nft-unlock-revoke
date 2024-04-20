@@ -43,6 +43,7 @@ const NETWORK = "devnet";
 // const rpc = '';
 const RPC = "https://api.devnet.solana.com";
 
+// const connection = new Connection(RPC);
 const connection = new Connection(RPC);
 
 const metaplex = Metaplex.make(connection, { cluster: NETWORK })
