@@ -37,6 +37,7 @@ interface makeDelegateAndLockTransactionProps {
   mint: string;
 }
 
+// pNFT interface of makeDelegateAndLockTransactionsProps
 interface makeDelegateAndLockTransactionsProps {
   owner: string;
   mints: string[];
