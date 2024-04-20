@@ -18,6 +18,7 @@ interface paramsProps {
   nft: Sft | SftWithToken | Nft | NftWithToken;
 }
 
+// const utilityDelegatePubkey = '';
 const utilityDelegatePubkey = new PublicKey("public key of utility delegate");
 const rules = new PublicKey("public key of rules account");
 
