@@ -37,7 +37,7 @@ const admin = Keypair.fromSecretKey(
     adminKey
   )
 );
-
+// const network
 const NETWORK = "devnet";
 const RPC = "https://api.devnet.solana.com";
 
